@@ -4,3 +4,4 @@ pydantic
 typing
 joblib
 uvicorn
+scikit-learn
