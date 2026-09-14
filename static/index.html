@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uber Ride Cancellation Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand">
+        <div class="brand-icon">U</div>
+        <div>
+          <p class="eyebrow">MACHINE LEARNING</p>
+          <h1>Uber Ride Predictor</h1>
+        </div>
+      </div>
+      <div class="status-pill"><span></span> API Ready</div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">RIDE CANCELLATION PREDICTION</p>
+      <h2>Will this ride be cancelled?</h2>
+      <p>Enter the ride details below to get an instant machine-learning prediction.</p>
+    </section>
+
+    <form id="predictionForm" novalidate>
+      <section class="card">
+        <div class="section-heading">
+          <div class="section-number">01</div>
+          <div><h3>Ride Details</h3><p>Trip and booking information</p></div>
+        </div>
+
+        <div class="form-grid">
+          <label>Average VTAT (min)
+            <input type="number" name="Avg_VTAT" min="0" step="0.01" placeholder="e.g. 5.2" required>
+          </label>
+          <label>Average CTAT (min)
+            <input type="number" name="Avg_CTAT" min="0" step="0.01" placeholder="e.g. 9.5" required>
+          </label>
+          <label>Booking Value
+            <input type="number" name="Booking_Value" min="0.01" step="0.01" placeholder="e.g. 350" required>
+          </label>
+          <label>Ride Distance (km)
+            <input type="number" name="Ride_Distance" min="0" step="1" placeholder="e.g. 12" required>
+          </label>
+          <label>Vehicle Type
+            <select name="Vehicle_Type" required>
+              <option value="">Select vehicle</option>
+              <option>eBike</option><option>Go Sedan</option><option>Auto</option>
+              <option>Premier Sedan</option><option>Bike</option><option>Go Mini</option><option>Uber XL</option>
+            </select>
+          </label>
+          <label>Payment Method
+            <select name="Payment_Method" required>
+              <option value="">Select payment</option>
+              <option>missing</option><option>UPI</option><option>Debit Card</option>
+              <option>Cash</option><option>Uber Wallet</option><option>Credit Card</option>
+            </select>
+          </label>
+          <label>Pickup Location
+            <select name="Top_Pickup_Location" required>
+              <option value="">Select pickup</option>
+              <option>Other</option><option>Khandsa</option><option>AIIMS</option><option>Madipur</option>
+              <option>Pragati Maidan</option><option>Mehrauli</option><option>Dwarka Sector 21</option>
+              <option>Barakhamba Road</option><option>Saket</option><option>Badarpur</option><option>Pataudi Chowk</option>
+            </select>
+          </label>
+          <label>Drop Location
+            <select name="Top_Drop_Location" required>
+              <option value="">Select drop</option>
+              <option>Other</option><option>Narsinghpur</option><option>Cyber Hub</option><option>Nehru Place</option>
+              <option>Basai Dhankot</option><option>Ashram</option><option>Lajpat Nagar</option><option>Udyog Vihar</option>
+              <option>Kalkaji</option><option>Lok Kalyan Marg</option><option>Kashmere Gate ISBT</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div class="section-number">02</div>
+          <div><h3>Ratings & Customer</h3><p>Experience and customer history</p></div>
+        </div>
+
+        <div class="form-grid">
+          <label>Driver Rating
+            <input type="number" name="Driver_Ratings" min="0" max="5" step="0.1" placeholder="0 – 5" required>
+          </label>
+          <label>Customer Rating
+            <input type="number" name="Customer_Rating" min="0" max="5" step="0.1" placeholder="0 – 5" required>
+          </label>
+          <label>Total Customer Bookings
+            <input type="number" name="Customer_Total_Bookings" min="0" step="1" placeholder="e.g. 8" required>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div class="section-number">03</div>
+          <div><h3>Booking Date & Time</h3><p>Temporal features used by the model</p></div>
+        </div>
+
+        <div class="form-grid">
+          <label>Hour
+            <input type="number" name="Hour" min="0" max="23" step="1" placeholder="0 – 23" required>
+          </label>
+          <label>Day
+            <input type="number" name="Day" min="1" max="31" step="1" placeholder="1 – 31" required>
+          </label>
+          <label>Month
+            <input type="number" name="Month" min="1" max="12" step="1" placeholder="1 – 12" required>
+          </label>
+          <label>Weekday
+            <select name="Weekday" required>
+              <option value="">Select day</option>
+              <option value="0">Monday (0)</option><option value="1">Tuesday (1)</option>
+              <option value="2">Wednesday (2)</option><option value="3">Thursday (3)</option>
+              <option value="4">Friday (4)</option><option value="5">Saturday (5)</option>
+              <option value="6">Sunday (6)</option>
+            </select>
+          </label>
+          <label class="toggle-field">
+            Weekend Booking
+            <span class="toggle-wrap">
+              <input type="checkbox" id="weekendToggle">
+              <span class="toggle"></span>
+              <span id="weekendText">Weekday</span>
+            </span>
+          </label>
+          <input type="hidden" name="Is_Weekend" id="isWeekend" value="0">
+        </div>
+      </section>
+
+      <div id="errorBox" class="message error" role="alert"></div>
+
+      <button class="predict-btn" id="predictBtn" type="submit">
+        <span class="btn-text">Predict Ride Status</span>
+        <span class="loader" aria-hidden="true"></span>
+        <span class="arrow">→</span>
+      </button>
+    </form>
+
+    <section id="resultCard" class="result-card" aria-live="polite">
+      <div id="resultIcon" class="result-icon"></div>
+      <div>
+        <p class="eyebrow">PREDICTION RESULT</p>
+        <h3 id="resultTitle">Waiting for prediction</h3>
+        <p id="resultMessage">Submit the ride details to see the model's prediction.</p>
+      </div>
+      <button id="resetBtn" class="reset-btn" type="button">Reset</button>
+    </section>
+
+    <footer>Powered by FastAPI & Machine Learning</footer>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
