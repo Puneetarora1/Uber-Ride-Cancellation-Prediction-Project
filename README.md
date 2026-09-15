@@ -84,7 +84,7 @@ The main optimization goal was to **maximize Recall**, ensuring that as many pot
 Enter the ride details in the web application to get a real-time prediction of whether the customer is likely to cancel the ride.
 
 ## 📷 Project Snapshot
-- ![Webpage view](https://github.com/Puneetarora1/PhonePe-Data-Analysis-Project/blob/main/Report%20Snapshot.png)
+- ![Web Application View](https://github.com/Puneetarora1/Uber-Ride-Cancellation-Prediction-Project/blob/main/Web%20app%20Snapshot.png)
 
 ---
 ```
