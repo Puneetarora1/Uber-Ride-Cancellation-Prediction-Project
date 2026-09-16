@@ -3,16 +3,12 @@
 ## 🚗 Project Overview
 An end-to-end **Machine Learning project** that predicts whether a customer will cancel an Uber ride before it begins.The project focuses on **imbalanced classification** and covers the complete ML lifecycle — from data preprocessing and feature engineering to model deployment using **FastAPI** and an interactive web frontend.
 
----
-
 ## 🎯 Objective
 - Predict customer ride cancellations using booking and ride-related features.
 - Handle the highly imbalanced cancellation class effectively.
 - Compare multiple classification algorithms.
 - Optimize the best-performing model using hyperparameter tuning.
 - Deploy the trained model as an interactive web application.
-
----
 
 ## 📊 Dataset
 **Source:** Kaggle — Uber Ride Analytics 2024  
@@ -24,8 +20,6 @@ An end-to-end **Machine Learning project** that predicts whether a customer will
 - `0` → Not cancelled
 
 **Class Distribution:** ~93% non-cancelled vs ~7% cancelled rides.
-
----
 
 ## 🛠️ Tech Stack
 - **Programming:** Python
@@ -39,8 +33,6 @@ An end-to-end **Machine Learning project** that predicts whether a customer will
 - **Backend:** FastAPI
 - **Frontend:** HTML, CSS, JavaScript
 - **Deployment:** GitHub, Render
-
----
 
 ## 📌 Project Workflow
 1. Data collection and exploration
@@ -57,13 +49,9 @@ An end-to-end **Machine Learning project** that predicts whether a customer will
 12. Interactive frontend development
 13. Deployment on Render
 
----
-
 ## 📈 Model Evaluation
 I evaluated **Decision Tree, Random Forest, and XGBoost** models using metrics suitable for imbalanced classification.
 After model comparison, **Random Forest** performed best for this dataset and was further optimized using `RandomizedSearchCV`.
-
----
 
 ### 🔑 Key Results
 - **ROC-AUC:** 96.2%
@@ -73,13 +61,11 @@ After model comparison, **Random Forest** performed best for this dataset and wa
 
 The main optimization goal was to **maximize Recall**, ensuring that as many potential customer cancellations as possible were detected.
 
----
-
 ## 🌐 Live Demo
 
 ### 🚀 Try the Model Live
 
-👉 **[Uber Ride Cancellation Prediction]** (https://uber-ride-cancellation-prediction-project.onrender.com)
+👉 [Uber Ride Cancellation Prediction](https://uber-ride-cancellation-prediction-project.onrender.com)
 
 Enter the ride details in the web application to get a real-time prediction of whether the customer is likely to cancel the ride.
 
